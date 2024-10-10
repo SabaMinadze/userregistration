@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Registration</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+</head>
+<body>
+    <center><div>
+        <h1>Hello Home page</h1>
+        <a href="/register"><button type="button" class="btn btn-info">Register user</button>
+        </a>
+    </div></center>
+
+    <center><div>
+        <ul>
+            {% for user in users %}
+                <li class="list1">
+                    {{ user.id }} Name: {{ user.name }}, Email: {{ user.email }}, Age: {{ user.age }}
+                    <form action="{{ url_for('delete_user', user_id=user.id) }}" method="POST" style="display:inline;">
+                        <button type="submit" class="btn btn-danger">Delete</button>
+
+                    </form>
+                </li>
+
+            {% endfor %}
+        </ul>
+    </div></center>
+
+    <style>
+        body{
+            background-color: cadetblue;
+        }
+        .list1{
+            list-style: none;
+            background-color: greenyellow;
+            margin-top: 10px;
+            width: 900px;
+            border-radius: 30px;
+        }
+    </style>
+ 
+</body>
+</html>
